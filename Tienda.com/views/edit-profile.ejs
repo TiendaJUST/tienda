@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tienda</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="/style/home-page.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+</head>
+
+<body style="background-image: url('/images/bg.jpeg')">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+    
+                    <a class="navbar-brand" id="logo" href="/">
+                        <!-- <img alt="Brand" src="..."> -->
+                        Tienda.com
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <form class="navbar-form navbar-left">
+                                <input type="text" class="form-control" placeholder="search ..." autocomplete="off" name="search"
+                                    id="trans-input">
+                            </form>
+                        </li>
+                        <li>
+                            <a href="" data-toggle="dropdown" class="dropdown-toggle">Categories <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <%for(var i = 0; i < categories.length; i++){%>
+                                    <li><a><%=categories[i].name%></a></li>
+                                <%}%>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                        <li><a href="/about">About us</a></li>
+                        <li><a href="/contact">Contact us</a></li>
+                        <%if(!user){%>
+                            <li><a href="/reg">Sign in/up</a></li>
+                        <%}else{%>
+                            <li>
+                                <a href="" data-toggle="dropdown" class="dropdown-toggle">
+                                    <%=user.profile.name%></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="/u/profile">Profile</a></li>
+                                    <li><a href="/u/logout">Logout</a></li>
+                                </ul>
+                            </li>
+                        <%}%>
+                        <!-- 
+                                <li><a href="/">Page2</a></li>
+        
+                                <li><a href="/">Page2</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <div class="spaceup"></div>
+
+    <div class="container">
+        <h3 class="text-center" style="color:#fff">Register</h3>
+        <form action="/u/create-user" method="POST">
+
+            <div class="form-group">
+                <label style="color:#fff" for="name">Name</label>
+                <input type="text" name="name" value="<%=user.profile.name%>" placeholder="Name ..." class="form-control" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label style="color:#fff" for="email">Email</label>
+                <input type="text" name="email" value="<%=user.email%>" placeholder="Email ..." class="form-control" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label style="color:#fff" for="password">Password</label>
+                <input type="password" name="password" placeholder="Password ..." class="form-control" required
+                    autocomplete="off">
+            </div>
+            <div class="form-group">
+                    <label style="color:#fff" for="password">Password</label>
+                    <input type="password" name="repassword" placeholder="Re-Password ..." class="form-control" required
+                        autocomplete="off">
+                </div>
+            <div class="form-group">
+                <label style="color:#fff" for="phone">Phone number</label>
+                <input type="text" name=phone" value="<%=user.phone%>" placeholder="Phone number ..." class="form-control" required
+                    autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label style="color:#fff" for="phone">Address</label>
+                <input type="text" name=address" value="<%=user.address%>" placeholder="Address ..." class="form-control" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label style="color:#fff" for="gender">Gender</label>
+                <select name="gender" id="" value="<%=user.gender%>" class="form-control" required autocomplete="off">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label style="color:#fff" for="birthdate">Birth date</label>
+                <input type="date" value="<%=user.birth%>" name="birthdate" placeholder="Birth date" id="birthDay" class="form-control"
+                    required autocomplete="off">
+            </div>
+
+            <input type="submit" name="" value="Register" class="form-control btn btn-primary">
+        </form>
+
+    </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <!-- <script src="/javascripts/home-page.js"></script> -->
+    <!-- 
+    <script>
+        var imageBase64 = null;
+        function CheckForm() {
+            var User = {};
+            User['Name'] = $('#Name').val();
+            User['Email'] = $('#Email').val();
+            User['Password'] = $('#Password').val();
+            User['PhoneNumber'] = $('#Phone').val();
+            User['Gender'] = $('#dllGender').val();
+            User['birthDay'] = $('#birthDay').val();
+            User['Image'] = $('#imgElem').attr('src');
+            CallService('SaveUserData', User, function (data) {
+                alert(data);
+            });
+        }
+
+        function loadFile() {
+            var preview = document.getElementById('imgElem');
+            var file = document.getElementById('fileinput').files[0];
+            var reader = new FileReader();
+            reader.addEventListener("load", function () {
+
+                preview.src = reader.result;
+                ImgUse = reader.result;
+            }, false);
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            ConvertImageToBinaryStrign();
+        }
+        function ConvertImageToBinaryStrign() {
+            var input, file;
+            input = document.getElementById('fileinput');
+            file = input.files[0];
+
+            fr = new FileReader();
+            fr.onload = receivedText;
+            fr.readAsBinaryString(file);
+
+            function receivedText() {
+                icon = fr.result;  // icon is the xml format
+                console.log(icon);
+            }
+        }
+    </script> -->
+    </div>
+</body>
+
+</html>

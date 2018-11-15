@@ -1,0 +1,64 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.spaceup{
+    margin-top:100px;
+}
+
+
+@font-face{
+    font-family: 'Pacifico',
+    src: url('/fonts/Pacifico-Regular.ttf')
+}
+/* Pacifico */
+a.navbar-brand{
+    font-family: 'Pacifico';
+    font-weight: normal;
+    font-size: 2.5em;
+}
+
+nav.navbar {
+    border-radius: 0px;
+}
+
+input#trans-input{
+    font-size: 1.8em;
+    background-color: transparent;
+    border:0px;
+    border-radius: 0px;
+    color: #ccc;
+}
+input#trans-input:focus{
+    box-shadow: 0 0 0;
+    border-bottom: 1px solid #fff;
+}
+
+p#category-label{
+    color: #fff;
+    font-size: 2.2em;
+    margin-top: 8px;
+}
+
+div.row#category-cards div:hover{
+    padding: 10px;
+    /* border-radius: 5px; */
+    background-color: rgba(0, 0, 0, 0.658);
+    transition: 0.5s;
+}
+
+div.row#descripe-idea{
+    color: #ccc;
+}
+
+#title{
+    font-size: 3.5em;
+    font-family: 'Pacifico' !important;
+}
+
+#rightsMsg{
+    color: #ccc;
+    margin-top:60px;
+}
