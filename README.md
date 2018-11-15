@@ -1,3 +1,2 @@
 # Tienda Online Shoping
-
-##GP1+2
+Our GP
